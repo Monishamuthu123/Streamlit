@@ -26,11 +26,12 @@ def app():
         st.write(bar_graph)
 
     if covid_bar == 'Cured':
-        bar_graph = px.bar(df_selection, x="Cured", y="State", color="State",
+        bar_graph = px.bar(df_selection, x="Cured", y="State", color="Cured",
                            hover_data=['Cured'], barmode='stack', title=covid_bar + ' cases in India')
         st.write(bar_graph)
 
     if covid_bar == 'Confirmed':
-        bar_graph = px.bar(df_selection, x="Confirmed", y="State", color="State",
+        bar_graph = px.bar(df_selection, x="Confirmed", y="State", color="Confirmed",
                            hover_data=['Confirmed'], barmode='stack', title=covid_bar + ' cases in India')
         st.write(bar_graph)
+        
