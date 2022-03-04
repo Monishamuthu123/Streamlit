@@ -16,63 +16,21 @@ def app():
         "State == @state"
     )
     st.sidebar.header("View the results of Covid cases!")
-    pie_bar = st.sidebar.radio(
+    covid_bar = st.sidebar.radio(
         "Select the status:",
         options=["Cured", "Confirmed", "Deaths"])
 
-    if pie_bar == 'Deaths':
-        pie_chart = px.pie(
-            data_frame=df_selection,
-            values='Deaths',
-            names='State',
-            color='State',
-            # color_discrete_sequence=['pink', 'silver', 'steelblue'],
-            hover_name='Deaths',
-            # hover_data=['positive'],
-            # custom_data=['total'],
-            labels={"state": "the State"},
-            title=pie_bar + ' cases in India',
-            template='presentation',
-            # width=800,
-            # height=600,
-            hole=0.4,
-        )
-        st.write(pie_chart)
+    if covid_bar == 'Deaths':
+        bar_graph = px.bar(df_selection, x="Deaths", y="State", color="Deaths",
+                     hover_data=['Deaths'], barmode='stack', title=covid_bar + ' cases in India')
+        st.write(bar_graph)
 
-    if pie_bar == 'Cured':
-        pie_chart = px.pie(
-            data_frame=df_selection,
-            values='Cured',
-            names='State',
-            color='State',
-            # color_discrete_sequence=['pink', 'silver', 'steelblue'],
-            hover_name='Cured',
-            # hover_data=['positive'],
-            # custom_data=['total'],
-            labels={"state": "the State"},
-            title=pie_bar + ' cases in India',
-            template='presentation',
-            # width=800,
-            # height=600,
-            hole=0.4,
-        )
-        st.write(pie_chart)
+    if covid_bar == 'Cured':
+        bar_graph = px.bar(df_selection, x="Cured", y="State", color="State",
+                           hover_data=['Cured'], barmode='stack', title=covid_bar + ' cases in India')
+        st.write(bar_graph)
 
-    if pie_bar == 'Confirmed':
-        pie_chart = px.pie(
-            data_frame=df_selection,
-            values='Confirmed',
-            names='State',
-            color='State',
-            # color_discrete_sequence=['pink', 'silver', 'steelblue'],
-            hover_name='Confirmed',
-            # hover_data=['positive'],
-            # custom_data=['total'],
-            labels={"state": "the State"},
-            title=pie_bar + ' cases in the India',
-            template='presentation',
-            # width=800,
-            # height=600,
-            hole=0.4,
-        )
-        st.write(pie_chart)
+    if covid_bar == 'Confirmed':
+        bar_graph = px.bar(df_selection, x="Confirmed", y="State", color="State",
+                           hover_data=['Confirmed'], barmode='stack', title=covid_bar + ' cases in India')
+        st.write(bar_graph)
