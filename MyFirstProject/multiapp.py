@@ -40,7 +40,7 @@ class MultiApp:
 
     def run(self):
         # app = st.sidebar.radio(
-        app = st.selectbox(
+        app = st.sidebar.selectbox(
             'Select the reports',
             self.apps,
             format_func=lambda app: app['title'])
